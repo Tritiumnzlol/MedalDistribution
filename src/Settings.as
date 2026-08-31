@@ -22,18 +22,14 @@ bool S_Enabled = true;
 
 
 [Setting category="Display" name="Orientation"]
-BarOrientation S_Orientation =
-    BarOrientation::Horizontal;
-
+BarOrientation S_Orientation = BarOrientation::Horizontal;
 
 [Setting category="Display" name="Horizontal label position"]
-HorizontalLabelSide S_HorizontalLabelSide =
-    HorizontalLabelSide::Below;
+HorizontalLabelSide S_HorizontalLabelSide = HorizontalLabelSide::Below;
 
 
 [Setting category="Display" name="Vertical label position"]
-VerticalLabelSide S_VerticalLabelSide =
-    VerticalLabelSide::Right;
+VerticalLabelSide S_VerticalLabelSide = VerticalLabelSide::Right;
 
 [Setting category="Display" name="Bar length" min=150 max=1200]
 float S_BarLength = 520.0f;
@@ -101,30 +97,24 @@ bool S_Debug = false;
 
 
 [Setting category="Colours" name="Author" color]
-vec4 S_AuthorColor =
-    vec4(0.15f, 0.85f, 0.35f, 1.0f);
+vec4 S_AuthorColor = vec4(0.15f, 0.85f, 0.35f, 1.0f);
 
 
 [Setting category="Colours" name="Gold" color]
-vec4 S_GoldColor =
-    vec4(1.00f, 0.76f, 0.10f, 1.0f);
+vec4 S_GoldColor = vec4(1.00f, 0.76f, 0.10f, 1.0f);
 
 
 [Setting category="Colours" name="Silver" color]
-vec4 S_SilverColor =
-    vec4(0.72f, 0.76f, 0.82f, 1.0f);
+vec4 S_SilverColor = vec4(0.72f, 0.76f, 0.82f, 1.0f);
 
 
 [Setting category="Colours" name="Bronze" color]
-vec4 S_BronzeColor =
-    vec4(0.72f, 0.39f, 0.18f, 1.0f);
+vec4 S_BronzeColor = vec4(0.72f, 0.39f, 0.18f, 1.0f);
 
 
 [Setting category="Colours" name="No medal" color]
-vec4 S_NoMedalColor =
-    vec4(0.18f, 0.18f, 0.20f, 1.0f);
+vec4 S_NoMedalColor = vec4(0.18f, 0.18f, 0.20f, 1.0f);
 
 
 [Setting category="Colours" name="PB marker" color]
-vec4 S_PBColor =
-    vec4(1.0f, 1.0f, 1.0f, 1.0f);
+vec4 S_PBColor = vec4(1.0f, 1.0f, 1.0f, 1.0f);

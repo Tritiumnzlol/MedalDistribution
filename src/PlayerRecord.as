@@ -2,54 +2,36 @@ namespace PlayerRecord
 {
     int GetPersistentPB(string mapUid)
     {
-        auto app =
-            cast<CTrackMania>(GetApp());
+        auto app = cast<CTrackMania>(GetApp());
 
-        if (app is null)
+        if (app is null){
             return -1;
+        }
 
+        auto network = cast<CTrackManiaNetwork>( app.Network);
 
-        auto network =
-            cast<CTrackManiaNetwork>(
-                app.Network
-            );
-
-        if (network is null)
+        if (network is null){
             return -1;
+        }
+            
+        auto playground = network.ClientManiaAppPlayground;
 
-
-        auto playground =
-            network.ClientManiaAppPlayground;
-
-        if (playground is null)
+        if (playground is null){
             return -1;
+        }
+            
+        auto userMgr = playground.UserMgr;
 
-
-        auto userMgr =
-            playground.UserMgr;
-
-        if (userMgr.Users.Length == 0)
+        if (userMgr.Users.Length == 0){
             return -1;
+        }
+            
+        MwId userId = userMgr.Users[0].Id;
 
-
-        MwId userId =
-            userMgr.Users[0].Id;
-
-
-        auto scoreMgr =
-            playground.ScoreMgr;
-
+        auto scoreMgr = playground.ScoreMgr;
         if (scoreMgr is null)
             return -1;
 
-
-        return scoreMgr.Map_GetRecord_v2(
-            userId,
-            mapUid,
-            "PersonalBest",
-            "",
-            "TimeAttack",
-            ""
-        );
+        return scoreMgr.Map_GetRecord_v2(userId,mapUid,"PersonalBest","","TimeAttack","");
     }
 }

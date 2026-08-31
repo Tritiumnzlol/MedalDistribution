@@ -55,7 +55,6 @@ class MapDistribution
     int Bronze = 0;
     int NoMedal = 0;
 
-
     float Difficulty = 0.0f;
 
     uint64 LoadedAt = 0;
@@ -63,7 +62,6 @@ class MapDistribution
     bool Valid = false;
 
     string Error = "";
-
 
     float Percent(int value)
     {
@@ -106,26 +104,14 @@ class MapDistribution
         return Percent(NoMedal);
     }
 
-
     bool HasCoarseMedals()
     {
-        return
-            AuthorCoarse
-            ||
-            GoldCoarse
-            ||
-            SilverCoarse
-            ||
-            BronzeCoarse;
+        return AuthorCoarse || GoldCoarse || SilverCoarse || BronzeCoarse;
     }
-
 
     bool HasAnyCoarseData()
     {
-        return
-            HasCoarseMedals()
-            ||
-            PlayerCountCoarse;
+        return HasCoarseMedals() || PlayerCountCoarse;
     }
 
 
@@ -143,55 +129,23 @@ class MapDistribution
 
     bool GoldUnresolved()
     {
-        return
-            AuthorTime != GoldTime
-            &&
-            AuthorBoundary == GoldBoundary
-            &&
-            (
-                AuthorCoarse
-                ||
-                GoldCoarse
-            );
+        return AuthorTime != GoldTime && AuthorBoundary == GoldBoundary && ( AuthorCoarse || GoldCoarse );
     }
 
 
     bool SilverUnresolved()
     {
-        return
-            GoldTime != SilverTime
-            &&
-            GoldBoundary == SilverBoundary
-            &&
-            (
-                GoldCoarse
-                ||
-                SilverCoarse
-            );
+        return GoldTime != SilverTime && GoldBoundary == SilverBoundary && ( GoldCoarse || SilverCoarse);
     }
-
 
     bool BronzeUnresolved()
     {
-        return
-            SilverTime != BronzeTime
-            &&
-            SilverBoundary == BronzeBoundary
-            &&
-            (
-                SilverCoarse
-                ||
-                BronzeCoarse
-            );
+        return SilverTime != BronzeTime && SilverBoundary == BronzeBoundary && (SilverCoarse || BronzeCoarse);
     }
-
 
     bool NoMedalUnresolved()
     {
-        return
-            PlayerCountCoarse
-            &&
-            BronzeBoundary >= PlayerCount;
+        return PlayerCountCoarse && BronzeBoundary >= PlayerCount;
     }
 }
 
@@ -213,20 +167,15 @@ class CurrentMapState
     string PBStatus = "";
 
     MapDistribution@ Distribution = null;
-
-
     // Persistent local PB.
     int PB = -1;
 
-
     // Position/rank returned for PB.
     int PBBoundary = 0;
-
     bool PBReady = false;
 
     // True when PB rank has also fallen into the coarse range.
     bool PBPositionCoarse = false;
-
 
     uint64 NextDistributionRetryAt = 0;
     uint64 NextPBRetryAt = 0;
@@ -234,12 +183,8 @@ class CurrentMapState
 }
 
 
-CurrentMapState@ g_State =
-    CurrentMapState();
-
+CurrentMapState@ g_State = CurrentMapState();
 
 dictionary g_DistributionCache;
 
-
-bool g_ForceRefreshRequested =
-    false;
+bool g_ForceRefreshRequested = false;
