@@ -2,7 +2,7 @@
 name = "Medal Distribution"
 author = "J"
 category = "Overlay"
-version = "0.1.0"
+version = "0.1.2"
 
 [script]
 timeout = 0

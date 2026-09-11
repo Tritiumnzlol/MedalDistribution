@@ -1,9 +1,0 @@
-[meta]
-name = "Medal Distribution"
-author = "J"
-category = "Overlay"
-version = "0.1.0"
-
-[script]
-timeout = 0
-dependencies = [ "VehicleState" ]
